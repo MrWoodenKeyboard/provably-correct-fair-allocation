@@ -1,0 +1,14 @@
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+# Coq build artifacts
+*.vo
+*.vok
+*.vos
+*.glob
+.*.aux
+*.cache
+.lia.cache
+.nia.cache
+.DS_Store

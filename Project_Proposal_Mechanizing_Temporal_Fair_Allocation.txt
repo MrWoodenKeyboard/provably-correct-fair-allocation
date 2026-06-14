@@ -1,0 +1,24 @@
+﻿Project Proposal: Mechanizing Temporal Fair Allocation
+
+
+What I want to do, roughly speaking:
+I plan to formalize the game theoretic framework of online/temporal fair allocation of indivisible items where m items arrive over m days and are allocated to one of n agents, who have additive valuations over their bundles. Along with the skeleton, I plan to formalize the temporal versions of fairness and perhaps optimality concepts such as envy freeness up to 1 good (EF1) and Pareto optimality. Then, I plan to prove that a straightforward allocation rule always results in a temporally EF1 allocation for a restricted subcase, such as instances with bi-valued valuations.
+
+
+Which languages and tools I intend to use:
+I will use raw Rocq and Iris. The foundational game theory definitions (agents, items, valuations, and fairness properties) will be written in Rocq, and the allocation algorithm will be implemented as a standard program in HeapLang. The correctness will be verified using separation logic in Iris.
+
+
+A statement of what I think the top-level theorem will look like:
+
+
+{{{ is_bivalued_instance V ∗ is_arrival_sequence S }}} 
+  online_allocator V S 
+{{{ A, RET A; ⌜is_valid_allocation A S⌝ ∗ ⌜TEF1 V A⌝ }}}
+	
+
+(Where V is the valuation matrix, S is the sequence of arriving items, and A is the resulting allocation).
+
+
+Anything else I’d like to mention:
+My Ph.D. research is in algorithmic game theory, but I have long been enamored by mathematical logic, theory of computation, and formal languages. My favorite theorem has been the Curry-Howard isomorphism since my sophomore year in college. I want to use this project to merge these two interests. While I am keeping the initial scope bounded to simple allocation rules and restricted valuations, my ultimate goal is to build a foundational, mechanized tool that will help me reason about the fair allocation of indivisible items for years to come. If time permits at the end of the semester, I may look into automation frameworks like Diaframe to see if they can simplify the arithmetic inequality proofs, but my primary focus is establishing the base interactive framework. I am not familiar with the literature on the intersection of game theory and formal verification, so I am not getting my hopes up especially considering my workload, but I would be ecstatic if this project were to grow and become publishable at a niche conference sometime past the project deadline.
